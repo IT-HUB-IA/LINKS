@@ -1,0 +1,102 @@
+@import "@fontsource/space-grotesk/500.css";
+@import "@fontsource/space-grotesk/600.css";
+@import "@fontsource/ibm-plex-sans/400.css";
+@import "@fontsource/ibm-plex-sans/500.css";
+@import "@fontsource/ibm-plex-mono/500.css";
+
+/* Tokens da identidade da IT.IA (os mesmos do site it-ia.tec.br). */
+:root {
+  --preto: #050506;
+  --carvao: #151517;
+  --grafite: #2e2e31;
+  --nevoa: #b9b9be;
+  --branco: #ffffff;
+  --vermelho: #ff0000;
+  --amarelo: #f8ce45;
+  --papel: #f7f5f0;
+  --linha: #e8e5dd;
+  --linha-f: #d9d5ca;
+  --tinta-2: #55555c;
+  --tinta-3: #7a7a82;
+
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "IBM Plex Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+
+  --container: 1240px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --ease: cubic-bezier(.2, .7, .2, 1);
+  color-scheme: light;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--papel); color: var(--preto); font-family: var(--font-body); font-size: 16px; line-height: 1.6; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+::selection { background: var(--vermelho); color: #fff; }
+a { color: inherit; }
+svg { display: block; }
+:focus-visible { outline: 2px solid var(--vermelho); outline-offset: 3px; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
+.titulo { font-family: var(--font-display); font-weight: 600; letter-spacing: -.03em; line-height: 1.02; margin: 0; text-wrap: balance; }
+.titulo-ponto { display: inline-block; width: .16em; height: .16em; border-radius: 50%; background: var(--vermelho); margin-left: .06em; vertical-align: baseline; }
+.link { text-decoration: none; background: linear-gradient(currentColor, currentColor) 0 100% / 0 1px no-repeat; transition: background-size .25s ease; }
+.link:hover { background-size: 100% 1px; }
+/* marca-texto amarelo do site */
+.ab-marca { background: linear-gradient(transparent 60%, var(--amarelo) 60% 90%, transparent 90%); color: inherit; padding: 0 .06em; margin: 0 -.06em; }
+
+/* ---------- a página ----------
+   Cabe inteira na tela, sem rolagem, em qualquer celular: a página tem a altura da menor área visível
+   do navegador (svh, a que sobra com as barras abertas, inclusive no navegador do Instagram) e todo
+   tamanho vertical é uma fração dessa altura, com um piso (legível e tocável) e um teto (não exagerar
+   em telas grandes). Nada de medida fixa adivinhada: a mesma regra serve do celular pequeno ao grande.
+   O espaço que sobra fica entre os blocos (cabeçalho, links e rodapé), nunca dentro deles. */
+.ln { --h: 1svh; box-sizing: border-box; height: 100vh; height: 100svh; min-height: 0; display: flex; justify-content: center;
+  padding: max(env(safe-area-inset-top, 0px), calc(3.2 * var(--h))) 20px max(env(safe-area-inset-bottom, 0px), calc(2.4 * var(--h)));
+  background: radial-gradient(120% 60% at 50% -10%, rgba(248, 206, 69, .28), rgba(248, 206, 69, 0) 60%), var(--papel); }
+.ln-in { width: 100%; max-width: 440px; height: 100%; display: flex; flex-direction: column; justify-content: space-between; gap: clamp(4px, calc(2 * var(--h)), 28px); }
+.ln-cab { display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(3px, calc(1.2 * var(--h)), 12px); }
+.ln-avatar { flex: none; width: clamp(40px, calc(11 * var(--h)), 104px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: var(--preto);
+  box-shadow: 0 0 0 5px var(--papel), 0 0 0 6px rgba(5, 5, 6, .08), 0 12px 26px -12px rgba(5, 5, 6, .45); margin-bottom: clamp(2px, calc(.8 * var(--h)), 8px); }
+.ln-avatar-logo { width: 46%; height: auto; margin-left: 4%; }
+.ln-nome { font-size: clamp(20px, calc(4.4 * var(--h)), 36px); color: var(--preto); }
+.ln-arroba { font-family: var(--font-body); font-size: clamp(11px, calc(1.7 * var(--h)), 14px); font-weight: 500; color: var(--tinta-2); text-decoration: none; background: var(--branco); border: 1px solid var(--linha-f); border-radius: 999px; padding: .35em 1em; transition: border-color .2s, color .2s; }
+.ln-arroba:hover { border-color: var(--preto); color: var(--preto); }
+/* a frase: justificada para formar um bloco limpo, com a última linha centralizada e hifenização em português */
+.ln-frase { margin: clamp(0px, calc(.6 * var(--h)), 6px) 0 0; width: 100%; max-width: 30ch; font-family: var(--font-display); font-weight: 500; font-size: clamp(13px, calc(2.3 * var(--h)), 19px); line-height: 1.35; letter-spacing: -.01em; color: var(--preto);
+  text-align: justify; text-align-last: center; hyphens: auto; -webkit-hyphens: auto; }
+.ln-frase .ab-marca { color: var(--preto); }
+/* o que a empresa faz, numa linha só (o tamanho acompanha a largura para nunca quebrar), separado pelo ponto vermelho do site */
+.ln-tags { margin: 0; display: flex; align-items: center; justify-content: center; gap: .7em; white-space: nowrap; font-family: var(--font-mono); font-weight: 500; letter-spacing: .04em; text-transform: uppercase;
+  font-size: min(clamp(9.5px, calc(1.5 * var(--h)), 12px), 2.9vw); color: var(--tinta-2); }
+.ln-tags i { width: 4px; height: 4px; border-radius: 50%; background: var(--vermelho); flex: none; }
+.ln-lista { display: flex; flex-direction: column; gap: clamp(5px, calc(1.4 * var(--h)), 12px); }
+.ln-cartao { display: grid; grid-template-columns: auto minmax(0, 1fr) 20px; align-items: center; gap: 14px; padding: 0 16px 0 clamp(8px, calc(1.4 * var(--h)), 14px); height: clamp(44px, calc(9 * var(--h)), 80px);
+  background: var(--branco); border: 1px solid var(--linha); border-radius: clamp(14px, calc(2.4 * var(--h)), 20px); color: var(--preto); text-decoration: none;
+  box-shadow: 0 1px 2px rgba(5, 5, 6, .04), 0 6px 18px -10px rgba(5, 5, 6, .18); -webkit-tap-highlight-color: transparent;
+  transition: transform .18s var(--ease), box-shadow .18s var(--ease), border-color .18s; }
+.ln-cartao:hover { transform: translateY(-2px); border-color: var(--linha-f); box-shadow: 0 2px 4px rgba(5, 5, 6, .05), 0 14px 28px -14px rgba(5, 5, 6, .28); }
+.ln-cartao:hover .ln-seta { transform: translateX(3px); }
+.ln-cartao:active { transform: scale(.98); box-shadow: 0 1px 2px rgba(5, 5, 6, .06); }
+.ln-cartao:focus-visible { outline: 2px solid var(--vermelho); outline-offset: 3px; }
+.ln-cartao.destaque { background: var(--preto); border-color: var(--preto); color: var(--branco); box-shadow: 0 16px 30px -16px rgba(5, 5, 6, .6); }
+.ln-cartao.destaque .ln-txt small, .ln-cartao.destaque .ln-seta { color: var(--nevoa); }
+.ln-icone { width: clamp(30px, calc(6.4 * var(--h)), 52px); aspect-ratio: 1; border-radius: 28%; display: grid; place-items: center; background: var(--papel); color: var(--preto); }
+.ln-icone svg { width: 46%; height: auto; }
+.ln-cartao.destaque .ln-icone { background: #25d366; color: var(--branco); }
+.ln-icone .logo-mini { width: 46%; height: auto; }
+.ln-icone .logo-mini rect { fill: var(--preto); }
+.ln-serie { font-family: var(--font-mono); font-size: clamp(8px, calc(1.2 * var(--h)), 10px); font-weight: 500; letter-spacing: .02em; color: var(--preto); }
+.ln-txt { display: grid; gap: 1px; min-width: 0; }
+.ln-txt b { font-family: var(--font-display); font-weight: 600; font-size: clamp(14px, calc(2.2 * var(--h)), 17px); letter-spacing: -.01em; line-height: 1.2; }
+.ln-txt small { font-size: clamp(12px, calc(1.8 * var(--h)), 14px); line-height: 1.3; color: var(--tinta-2); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.ln-seta { width: 20px; height: 20px; color: var(--tinta-3); transition: transform .18s var(--ease); }
+.ln-rod { display: flex; flex-direction: column; align-items: center; gap: clamp(4px, calc(1.4 * var(--h)), 14px); text-align: center; }
+.ln-redes { display: flex; gap: 12px; }
+.ln-rede { width: clamp(32px, calc(5.6 * var(--h)), 46px); aspect-ratio: 1; border-radius: 50%; display: grid; place-items: center; background: var(--branco); border: 1px solid var(--linha); color: var(--preto); box-shadow: 0 4px 12px -8px rgba(5, 5, 6, .25); transition: transform .18s var(--ease), border-color .18s; }
+.ln-rede:hover { transform: translateY(-2px); border-color: var(--linha-f); }
+.ln-rede:active { transform: scale(.96); }
+.ln-rede svg { width: 48%; height: auto; }
+.ln-legais { margin: 0; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 4px 8px; font-size: clamp(11px, calc(1.6 * var(--h)), 13px); line-height: 1.4; color: var(--tinta-3); }
+/* tela mais larga do que alta (celular deitado, notebook baixo): a altura não comporta tudo, então a página rola normalmente */
+@media (orientation: landscape) and (max-height: 520px) { .ln { height: auto; min-height: 100svh; } .ln-in { height: auto; } }
+@media (prefers-reduced-motion: reduce) { .ln-cartao, .ln-rede, .ln-seta { transition: none; } .ln-cartao:hover, .ln-rede:hover { transform: none; } }
