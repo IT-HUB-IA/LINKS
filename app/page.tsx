@@ -24,7 +24,7 @@ export default function Links() {
       <div className="ln-in">
         <header className="ln-cab">
           <div className="ln-avatar" aria-hidden="true"><Logo className="ln-avatar-logo" titulo="" /></div>
-          <h1 className="titulo ln-nome">IT.IA<span className="titulo-ponto" aria-hidden="true" /></h1>
+          <h1 className="titulo ln-nome">IT<span className="ln-ponto">.</span>IA</h1>
           <a className="ln-arroba" href={contato.instagram} target="_blank" rel="noopener noreferrer">{contato.instagramTexto}</a>
           <p className="ln-frase" lang="pt-BR">Tecnologia que sustenta a <mark className="ab-marca">operação</mark> das empresas, do escopo à entrega.</p>
           <p className="ln-tags">Sob medida<i aria-hidden="true" />Produtos próprios<i aria-hidden="true" />IA integrada</p>

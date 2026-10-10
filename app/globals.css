@@ -59,6 +59,8 @@ svg { display: block; }
   box-shadow: 0 0 0 5px var(--papel), 0 0 0 6px rgba(5, 5, 6, .08), 0 12px 26px -12px rgba(5, 5, 6, .45); margin-bottom: clamp(2px, calc(.8 * var(--h)), 8px); }
 .ln-avatar-logo { width: 46%; height: auto; margin-left: 4%; }
 .ln-nome { font-size: clamp(20px, calc(4.4 * var(--h)), 36px); color: var(--preto); }
+/* o único ponto vermelho do nome fica entre o IT e o IA, como na marca */
+.ln-ponto { color: var(--vermelho); }
 .ln-arroba { font-family: var(--font-body); font-size: clamp(11px, calc(1.7 * var(--h)), 14px); font-weight: 500; color: var(--tinta-2); text-decoration: none; background: var(--branco); border: 1px solid var(--linha-f); border-radius: 999px; padding: .35em 1em; transition: border-color .2s, color .2s; }
 .ln-arroba:hover { border-color: var(--preto); color: var(--preto); }
 /* a frase: justificada para formar um bloco limpo, com a última linha centralizada e hifenização em português */
